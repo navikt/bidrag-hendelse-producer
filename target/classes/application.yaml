@@ -1,4 +1,16 @@
+####################################################################
+#
+# Common properties
+#
+###################################################################
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
 server:
+    servlet:
+        context-path: /bidrag-hendelse-producer
     port: 9000
 
 spring:

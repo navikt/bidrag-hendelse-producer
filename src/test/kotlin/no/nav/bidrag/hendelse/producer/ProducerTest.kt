@@ -1,13 +1,25 @@
 package no.nav.bidrag.hendelse.producer
 
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.Mockito
+import org.mockito.junit.jupiter.MockitoExtension
+import org.springframework.kafka.core.KafkaTemplate
 
-
+@ExtendWith(MockitoExtension::class)
 class ProducerTest {
 
+    inline fun <reified T: Any> mock() = Mockito.mock(T::class.java)
+
     @Test
-    fun test(){
-        Assertions.assertTrue(true);
+    fun shouldInitClass(){
+        // GIVEN
+        var kafkaTemplate:KafkaTemplate<String, String> = mock();
+
+        // WHEN
+        val producer:Producer = Producer(kafkaTemplate)
+        // THEN
+        assertNotNull(producer)
     }
 }
