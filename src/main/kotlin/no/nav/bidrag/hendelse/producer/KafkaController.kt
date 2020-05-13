@@ -1,16 +1,18 @@
 package no.nav.bidrag.hendelse.producer
 import org.apache.kafka.common.requests.ProduceRequest
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/kafka")
 class KafkaController(@Autowired val producer: Producer){
 
-    @PostMapping("/publish")
+    @GetMapping("/")
+    fun index():String{
+        return "Velkommen til Bidrag hendelse Producer App"
+    }
+
+    @GetMapping("/publish")
     fun sendMessageToKafkaTopic(@RequestParam("message") message: String){
         producer.sendMessage(message);
     }

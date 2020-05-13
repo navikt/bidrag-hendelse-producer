@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service
 class Producer (@Autowired val kafkaTemplate: KafkaTemplate<String,String>){
 
     private val logger: Logger = LoggerFactory.getLogger(Producer::class.java)
-    private val TOPIC = "users"
+    private val TOPIC = "test" // Plasser i yaml filen eller fra NAIS.
 
     fun sendMessage(message: String?) {
-        logger.info(String.format("$$ -> Producing message --> %s", message))
+        logger.info(String.format("$$ -> Produserer melding --> %s", message))
         this.kafkaTemplate.send(TOPIC,message);
     }
 }
