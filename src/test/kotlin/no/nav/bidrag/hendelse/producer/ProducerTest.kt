@@ -15,7 +15,7 @@ class ProducerTest {
     @Test
     fun shouldInitClass(){
         // GIVEN
-        var kafkaTemplate:KafkaTemplate<String, String> = mock();
+        val kafkaTemplate:KafkaTemplate<String, String> = mock();
 
         // WHEN
         val producer:Producer = Producer(kafkaTemplate)
