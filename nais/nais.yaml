@@ -18,8 +18,7 @@ spec:
     initialDelay: 20
     timeout: 1
   prometheus:
-    enabled: true
-    path: /bidrag-hendelse-producer/actuator/prometheus
+    enabled: false
   resources:
     limits:
       cpu: 1000m
