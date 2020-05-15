@@ -1,0 +1,5 @@
+{
+  "namespace": "default",
+  "ingress_preprod": "https://bidrag-hendelse-producer.nais.preprod.local/",
+  "ingress_nais": "https://bidrag-hendelse-producer.dev-fss.nais.io/"
+}
