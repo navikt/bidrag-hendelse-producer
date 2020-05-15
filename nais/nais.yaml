@@ -2,11 +2,11 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: bidrag-hendelse-producer
+  namespace: {{ namespace }}
   labels:
     team: bidrag
 spec:
-  image: repo.adeo.no:5443/bidrag-hendelse-producer:{{version}}
-  port: 8080
+  image: {{ image }}
   liveness:
     path: /bidrag-hendelse-producer/actuator/health
     initialDelay: 20
@@ -28,4 +28,12 @@ spec:
       cpu: 500m
       memory: 512Mi
   ingresses:
-    - {{ingress}}
+    - {{ ingress_preprod }}
+    - {{ ingress_nais }}
+  vault:
+    enabled: true
+    paths:
+      - kvPath: /serviceuser/data/dev/srvbidrag-dokument
+        mountPath: /var/run/secrets/nais.io/srvbidrag-dokument
+      - kvPath: /kv/preprod/fss/bidrag-hendelse-producer/{{ namespace }}
+        mountPath: /var/run/secrets/nais.io/vault
