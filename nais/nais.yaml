@@ -30,7 +30,7 @@ spec:
     - {{ ingress_preprod }}
     - {{ ingress_nais }}
   vault:
-    enabled: false
+    enabled: true
     paths:
       - kvPath: /serviceuser/data/dev/srvbidrag-dokument
         mountPath: /var/run/secrets/nais.io/srvbidrag-dokument
