@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>no.nav.bidrag.hendelse.producer</groupId>
 	<artifactId>Bidrag-Hendelse-Producer</artifactId>
-	<version>0.0.12-SNAPSHOT</version>
+	<version>0.0.13-SNAPSHOT</version>
 	<name>Bidrag-Hendelse-Producer</name>
 	<description>Mikrotjeneste for å skrive hendelser via KAFKA for bidrag-dokument</description>
 
