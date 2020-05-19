@@ -1,4 +1,5 @@
 package no.nav.bidrag.hendelse.producer.controller
+import no.nav.bidrag.hendelse.producer.dto.RegistrerJournalpostDto
 import no.nav.bidrag.hendelse.producer.kafka.Producer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*

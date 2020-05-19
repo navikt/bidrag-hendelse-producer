@@ -15,12 +15,16 @@ spring:
             client:
                 id: bidrag-hendelse-producer
             security.protocol: SASL_PLAINTEXT
+            specific:
+                avro.reader: true
+            schema:
+                registry.url: http://localhost:8081
             sasl:
                 mechanism: PLAIN
                 jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="igroup" password="itest";
         producer:
-            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-            value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            key-serializer: "org.apache.kafka.common.serialization.StringSerializer"
+            value-serializer: "io.confluent.kafka.serializers.KafkaAvroSerializer"
             auto-offset-reset: earliest
 
 app:

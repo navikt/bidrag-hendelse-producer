@@ -10,7 +10,12 @@
 	<artifactId>Bidrag-Hendelse-Producer</artifactId>
 	<name>Bidrag-Hendelse-Producer</name>
 	<description>Mikrotjeneste for å skrive hendelser via KAFKA for bidrag-dokument</description>
-
+	<repositories>
+		<repository>
+			<id>confluent</id>
+			<url>http://packages.confluent.io/maven/</url>
+		</repository>
+	</repositories>
 	<properties>
 		<java.version>11</java.version>
 		<springfox-swagger.version>2.9.2</springfox-swagger.version>
@@ -76,6 +81,11 @@
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-stdlib-jdk8</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.confluent</groupId>
+			<artifactId>kafka-avro-serializer</artifactId>
+			<version>5.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>

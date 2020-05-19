@@ -9,6 +9,7 @@
         <groupId>no.nav.bidrag.hendelse.producer</groupId>
         <version>0.0.12-SNAPSHOT</version>
     </parent>
+
     <artifactId>Bidrag-Hendelse-Producer-Schema</artifactId>
     <name>Bidrag-Hendelse-Producer-Schema</name>
 

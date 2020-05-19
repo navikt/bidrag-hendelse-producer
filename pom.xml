@@ -7,12 +7,10 @@
         <version>2.2.7.RELEASE</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
+    <artifactId>bidrag-hendelse-parent</artifactId>
     <groupId>no.nav.bidrag.hendelse.producer</groupId>
     <version>0.0.12-SNAPSHOT</version>
-    <packaging>
-        pom
-    </packaging>
-    <artifactId>bidrag-hendelse-parent</artifactId>
+    <packaging>pom</packaging>
     <modules>
         <module>schema</module>
         <module>producer</module>

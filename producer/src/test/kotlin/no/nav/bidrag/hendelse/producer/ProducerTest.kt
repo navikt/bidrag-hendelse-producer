@@ -1,5 +1,6 @@
 package no.nav.bidrag.hendelse.producer
 
+import no.nav.bidrag.hendelse.producer.dto.RegistrerJournalpostDto
 import no.nav.bidrag.hendelse.producer.kafka.Producer
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
