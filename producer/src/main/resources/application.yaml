@@ -23,9 +23,9 @@ spring:
                 mechanism: PLAIN
                 jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${SRVBIDRAG_DOKUMENT_USERNAME}" password="${SRVBIDRAG_DOKUMENT_PASSWORD}";
         producer:
-            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-            value-deserializer: io.confluent.kafka.serializers.StringDeserializer
+            key-serializer: "org.apache.kafka.common.serialization.StringSerializer"
+            value-serializer: "io.confluent.kafka.serializers.KafkaAvroSerializer"
             group-id: srvc01
             auto-offset-reset: earliest
-app:
-    topic: bidrag-journalpost
+kafka:
+    topic: bidrag-registrert-journalpost-v1

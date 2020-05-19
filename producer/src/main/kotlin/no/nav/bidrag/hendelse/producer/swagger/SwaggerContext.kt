@@ -1,5 +1,6 @@
-package no.nav.bidrag.hendelse.producer
+package no.nav.bidrag.hendelse.producer.swagger
 
+import no.nav.bidrag.hendelse.producer.controller.KafkaController
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import springfox.documentation.builders.RequestHandlerSelectors
