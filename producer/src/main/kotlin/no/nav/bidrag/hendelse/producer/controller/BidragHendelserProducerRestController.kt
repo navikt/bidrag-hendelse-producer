@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/hendelse")
-class BidragKafkaHendelserRestController(@Autowired val registrertJournalpostMeldingProducer: RegistrertJournalpostMeldingProducer){
+class BidragHendelserProducerRestController(@Autowired val registrertJournalpostMeldingProducer: RegistrertJournalpostMeldingProducer){
 
     @PostMapping("publish/journalpost/registrert")
     fun publishRegistrertJournalpostMeldingPaaTopic(@RequestBody registrerJournalpostForm:RegisterJournalpostForm){

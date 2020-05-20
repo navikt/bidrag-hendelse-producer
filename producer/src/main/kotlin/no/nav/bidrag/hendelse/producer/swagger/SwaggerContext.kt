@@ -1,6 +1,6 @@
 package no.nav.bidrag.hendelse.producer.swagger
 
-import no.nav.bidrag.hendelse.producer.controller.BidragKafkaHendelserRestController
+import no.nav.bidrag.hendelse.producer.controller.BidragHendelserProducerRestController
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import springfox.documentation.builders.RequestHandlerSelectors
@@ -16,7 +16,7 @@ class SwaggerContext {
     fun api(): Docket? {
         return Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage(BidragKafkaHendelserRestController::class.java.getPackage().name))
+                .apis(RequestHandlerSelectors.basePackage(BidragHendelserProducerRestController::class.java.getPackage().name))
                 .build()
     }
 }
