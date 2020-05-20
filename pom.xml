@@ -9,7 +9,7 @@
     </parent>
     <artifactId>bidrag-hendelse-parent</artifactId>
     <groupId>no.nav.bidrag.hendelse.producer</groupId>
-    <version>0.0.17-SNAPSHOT</version>
+    <version>0.0.18-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>schema</module>
