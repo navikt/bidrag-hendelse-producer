@@ -14,8 +14,8 @@ class KafkaController(@Autowired val producer: Producer){
     }
 
     @PostMapping("/publish")
-    fun sendMessageToKafkaTopic(@RequestBody registrerJournalpostDto: RegistrerJournalpostDto){
-        producer.sendMessage(registrerJournalpostDto);
+    fun sendMessageToKafkaTopic(@RequestBody registrerJournalpostForm:RegisterJournalpostForm){
+        producer.sendMessage(RegistrerJournalpostDto(registrerJournalpostForm.journalpostid,registrerJournalpostForm.saksnummer));
     }
 
 }
