@@ -15,8 +15,7 @@ class Producer (@Autowired val kafkaTemplate: KafkaTemplate<String,RegistrerJour
     @Value("\${kafka.topic}")
     private lateinit var TOPIC:String
 
-    fun sendMessage(message: RegistrerJournalpostDto?) {
-        logger.info(String.format("$$ -> Produserer melding --> %s", message))
-        this.kafkaTemplate.send(TOPIC,message);
+    fun sendMessage(journalpostid:Long, saksnummer:Long) {
+        this.kafkaTemplate.send(TOPIC,RegistrerJournalpostDto(journalpostid,saksnummer));
     }
 }

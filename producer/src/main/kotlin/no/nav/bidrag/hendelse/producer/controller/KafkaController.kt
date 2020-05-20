@@ -1,5 +1,4 @@
 package no.nav.bidrag.hendelse.producer.controller
-import no.nav.bidrag.hendelse.producer.dto.RegistrerJournalpostDto
 import no.nav.bidrag.hendelse.producer.kafka.Producer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -15,7 +14,7 @@ class KafkaController(@Autowired val producer: Producer){
 
     @PostMapping("/publish")
     fun sendMessageToKafkaTopic(@RequestBody registrerJournalpostForm:RegisterJournalpostForm){
-        producer.sendMessage(RegistrerJournalpostDto(registrerJournalpostForm.journalpostid,registrerJournalpostForm.saksnummer));
+        producer.sendMessage(registrerJournalpostForm.journalpostid,registrerJournalpostForm.saksnummer);
     }
 
 }
