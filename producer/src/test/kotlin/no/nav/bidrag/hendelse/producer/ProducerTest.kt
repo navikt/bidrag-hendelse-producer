@@ -1,7 +1,7 @@
 package no.nav.bidrag.hendelse.producer
 
 import no.nav.bidrag.hendelse.producer.dto.RegistrerJournalpostDto
-import no.nav.bidrag.hendelse.producer.kafka.Producer
+import no.nav.bidrag.hendelse.producer.kafka.RegistrertJournalpostMeldingProducer
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -20,8 +20,8 @@ class ProducerTest {
         val kafkaTemplate:KafkaTemplate<String, RegistrerJournalpostDto> = mock();
 
         // WHEN
-        val producer: Producer = Producer(kafkaTemplate)
+        val registrertJournalpostMeldingProducer: RegistrertJournalpostMeldingProducer = RegistrertJournalpostMeldingProducer(kafkaTemplate)
         // THEN
-        assertNotNull(producer)
+        assertNotNull(registrertJournalpostMeldingProducer)
     }
 }
