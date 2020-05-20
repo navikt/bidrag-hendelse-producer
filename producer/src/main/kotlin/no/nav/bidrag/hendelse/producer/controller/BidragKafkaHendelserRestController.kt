@@ -5,14 +5,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/hendelse")
-class KafkaHendelserRestController(@Autowired val registrertJournalpostMeldingProducer: RegistrertJournalpostMeldingProducer){
+class BidragKafkaHendelserRestController(@Autowired val registrertJournalpostMeldingProducer: RegistrertJournalpostMeldingProducer){
 
-    @GetMapping("/")
-    fun index():String{
-        return "Velkommen til Bidrag hendelse Producer App"
-    }
-
-    @PostMapping("/journalpost/registrert/publish")
+    @PostMapping("publish/journalpost/registrert")
     fun publishRegistrertJournalpostMeldingPaaTopic(@RequestBody registrerJournalpostForm:RegisterJournalpostForm){
         registrertJournalpostMeldingProducer.sendMelding(registrerJournalpostForm.journalpostid,registrerJournalpostForm.saksnummer);
     }
