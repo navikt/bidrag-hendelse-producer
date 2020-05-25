@@ -5,10 +5,11 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>no.nav.bidrag.hendelse.producer</groupId>
 	<artifactId>Bidrag-Hendelse-Producer</artifactId>
+  <version>2.2.4.RELEASE-SNAPSHOT</version>
 	<name>Bidrag-Hendelse-Producer</name>
 	<description>Mikrotjeneste for å skrive hendelser via KAFKA for bidrag-dokument</description>
 	<repositories>
