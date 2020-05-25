@@ -1,9 +1,0 @@
-[{
-  "namespace" : "no.nav.bidrag.hendelse.producer.dto",
-  "type" : "record",
-  "name" : "RegistrerJournalpostDto",
-  "fields" : [
-    {"name": "journalpostid", "type": "long"},
-    {"name": "saksnummer", "type": "long"}
-  ]
-}]
