@@ -28,4 +28,4 @@ spring:
             auto-offset-reset: earliest
 
 app:
-    topic: bidrag-registrert-journalpost-v1
+    topic: bidrag-registrert-journalpost-v2
