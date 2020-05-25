@@ -13,6 +13,6 @@ class RegistrertJournalpostMeldingProducer (@Autowired val kafkaTemplate: KafkaT
     private lateinit var TOPIC:String
 
     fun sendMelding(journalpostid:Long, saksnummer:Long) {
-        this.kafkaTemplate.send(TOPIC,RegistrerJournalpostDto(journalpostid,saksnummer));
+        this.kafkaTemplate.send(TOPIC,RegistrerJournalpostDto(journalpostid, saksnummer.toString()));
     }
 }
