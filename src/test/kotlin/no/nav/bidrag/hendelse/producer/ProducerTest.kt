@@ -12,15 +12,16 @@ import org.springframework.kafka.core.KafkaTemplate
 @ExtendWith(MockitoExtension::class)
 class ProducerTest {
 
-    inline fun <reified T: Any> mock() = Mockito.mock(T::class.java)
+    private inline fun <reified T : Any> mock() = Mockito.mock(T::class.java)
 
     @Test
-    fun shouldInitClass(){
+    fun `should init class`() {
         // GIVEN
-        val kafkaTemplate:KafkaTemplate<String, RegistrerJournalpostDto> = mock();
+        val kafkaTemplate: KafkaTemplate<String, RegistrerJournalpostDto> = mock()
 
         // WHEN
-        val registrertJournalpostMeldingProducer: RegistrertJournalpostMeldingProducer = RegistrertJournalpostMeldingProducer(kafkaTemplate)
+        val registrertJournalpostMeldingProducer = RegistrertJournalpostMeldingProducer(kafkaTemplate)
+
         // THEN
         assertNotNull(registrertJournalpostMeldingProducer)
     }
