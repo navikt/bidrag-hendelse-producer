@@ -3,15 +3,16 @@ package no.nav.bidrag.hendelse.producer.kafka
 import no.nav.bidrag.hendelse.producer.dto.RegistrerJournalpostDto
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.Mock
 import org.mockito.Mockito
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.mock.mockito.MockBean
+import org.mockito.junit.jupiter.MockitoExtension
 import org.springframework.kafka.core.KafkaTemplate
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@ExtendWith(MockitoExtension::class)
 class RegistrertJournalpostMeldingProducerTest {
 
-    @MockBean
+    @Mock
     private lateinit var kafkaTemplateMock: KafkaTemplate<String, RegistrerJournalpostDto>
 
     @Test
