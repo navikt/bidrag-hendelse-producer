@@ -9,15 +9,12 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 
 @Service
-class RegistrertJournalpostMeldingProducer(@Autowired val kafkaTemplate: KafkaTemplate<String, RegistrerJournalpostDto>) {
+class RegistrertJournalpostMeldingProducer(@Value("\${kafka.topic}") val TOPIC:String, @Autowired val kafkaTemplate: KafkaTemplate<String, RegistrerJournalpostDto>) {
 
     private val LOGGER: Logger = LoggerFactory.getLogger(RegistrertJournalpostMeldingProducer::class.java)
 
-    @Value("\${kafka.topic}")
-    private lateinit var TOPIC: String
-
     fun sendMelding(journalpostid: String, saksnummer: String) {
         LOGGER.info(String.format("Publiserer melding paa topic med journalpostid %s og saksnummer %s.", journalpostid, saksnummer))
-        this.kafkaTemplate.send(TOPIC, RegistrerJournalpostDto(journalpostid, saksnummer))
+        this.kafkaTemplate.send(this.TOPIC, RegistrerJournalpostDto(journalpostid, saksnummer))
     }
 }

@@ -1,4 +1,4 @@
-package no.nav.bidrag.hendelse.producer;
+package no.nav.bidrag.hendelse.producer
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
