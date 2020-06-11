@@ -65,11 +65,35 @@ jobs:
           RESOURCE: deploy/nais/nais.yaml
           VARS: deploy/nais/q1.json
 
+  run_cucumber:
+    runs-on: self-hosted
+    name: Run cucumber integration tests
+    needs: deploy_dev
+    steps:
+      - name: create project nais folder, ie simple, with bidrag-hendelse-producer/nais/<q1/q0>.json
+        run: |
+          mkdir simple
+          cd simple
+          git clone -n --depth 1 https://github.com/navikt/bidrag-hendelse-producer
+          cd bidrag-hendelse-producer
+          git checkout HEAD nais/q0.json
+          git checkout HEAD nais/q1.json
+      - uses: navikt/bidrag-maven/cucumber-backend@feature-simple
+        with:
+          maven_image: maven:3.6.3-jdk-13
+          cucumber_tag: bidrag-hendelse-producer
+          project_nais_folder: simple
+          username: j104364
+          test_user: z992903
+        env:
+          USER_AUTHENTICATION: ${{ secrets.USER_AUTHENTICATION }}
+          TEST_USER_AUTHENTICATION: ${{ secrets.TEST_USER_AUTHENTICATION }}
+
   bump_dev_version:
     runs-on: ubuntu-latest
     name: Bump SNAPSHOT version
     if: github.ref == 'refs/heads/master'
-    needs: build
+    needs: run_cucumber
 
     steps:
       - uses: actions/checkout@v2
