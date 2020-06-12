@@ -65,11 +65,30 @@ jobs:
           RESOURCE: deploy/nais/nais.yaml
           VARS: deploy/nais/q1.json
 
+  run_cucumber:
+    runs-on: self-hosted
+    name: Run cucumber integration tests
+    needs: deploy_dev
+    steps:
+      - uses: navikt/bidrag-maven/cucumber-backend@v2.2.0
+        with:
+          maven_image: maven:3.6.3-jdk-13
+          cucumber_tag: bidrag-hendelse-producer
+          use_nais_configuration: true
+          run_from_workspace: true
+          username: j104364
+          test_user: z992903
+        env:
+          USER_AUTHENTICATION: ${{ secrets.USER_AUTHENTICATION }}
+          TEST_USER_AUTHENTICATION: ${{ secrets.TEST_USER_AUTHENTICATION }}
+      - name: delete all files in runner workspace when finished
+        run: sudo rm -rf *
+
   bump_dev_version:
     runs-on: ubuntu-latest
     name: Bump SNAPSHOT version
     if: github.ref == 'refs/heads/master'
-    needs: build
+    needs: run_cucumber
 
     steps:
       - uses: actions/checkout@v2
