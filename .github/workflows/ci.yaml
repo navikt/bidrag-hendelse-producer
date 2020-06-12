@@ -81,6 +81,8 @@ jobs:
         env:
           USER_AUTHENTICATION: ${{ secrets.USER_AUTHENTICATION }}
           TEST_USER_AUTHENTICATION: ${{ secrets.TEST_USER_AUTHENTICATION }}
+      - name: delete all files in runner workspace when finished
+        run: sudo rm -rf *
 
   bump_dev_version:
     runs-on: ubuntu-latest
