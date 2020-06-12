@@ -70,7 +70,7 @@ jobs:
     name: Run cucumber integration tests
     needs: deploy_dev
     steps:
-      - uses: navikt/bidrag-maven/cucumber-backend@feature-simple
+      - uses: navikt/bidrag-maven/cucumber-backend@v2.2.0
         with:
           maven_image: maven:3.6.3-jdk-13
           cucumber_tag: bidrag-hendelse-producer
